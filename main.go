@@ -13,5 +13,8 @@ func main() {
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Hello World!"))
 	})
+	r.Get("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./favicon.ico")
+	})
 	http.ListenAndServe(":3000", r)
 }
